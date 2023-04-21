@@ -11,5 +11,6 @@
     <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_4 %></button>
     <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_5 %></button>
   </div>
-  <%= button_to 'Incrementar', increment_counter_path(@counter), class:"btn btn-danger"  %>
+  <%= button_to 'Incrementar', increment_counter_path(@counter), class:"btn btn-danger mb-3"  %>
+  <%= button_to 'Reiniciar contador', reset_counter_path(@counter), class:"btn btn-danger"  %>
 </div>

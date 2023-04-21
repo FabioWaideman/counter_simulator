@@ -37,4 +37,15 @@ class CountersController < ApplicationController
     @counter.save
     redirect_to @counter
   end
+
+  def reset
+    @counter = Counter.find(1)
+    @counter.digit_1 = 1
+    @counter.digit_2 = 1
+    @counter.digit_3 = 1
+    @counter.digit_4 = 1
+    @counter.digit_5 = 1
+    @counter.save
+    redirect_to @counter
+  end
 end

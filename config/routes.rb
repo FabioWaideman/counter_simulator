@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root to: 'counters#index'
   get '/counters/:id', to: 'counters#show', as: 'counter'
   post 'increment_counter', to: 'counters#increment', as: 'increment_counter'
+  post 'reset_counter', to: 'counters#reset', as: 'reset_counter'
 end
