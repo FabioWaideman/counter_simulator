@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
-  root to: 'counters#index'
+  root to: 'counters#show'
   get '/counters/:id', to: 'counters#show', as: 'counter'
-  post 'increment_counter', to: 'counters#increment', as: 'increment_counter'
   post 'reset_counter', to: 'counters#reset', as: 'reset_counter'
+  patch '/counters/:id', to: 'counters#update', as: 'add_field'
 end

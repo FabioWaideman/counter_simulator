@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 puts "creating counter"
 
-c = Counter.new
+c = Counter.new(field1: [], field2: [], field3: [], field4: [], field5: [])
 c.save
 
-puts "conter created"
+puts "counter created"

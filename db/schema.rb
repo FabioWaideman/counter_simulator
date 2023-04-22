@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_20_230125) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_20_224104) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "counters", force: :cascade do |t|
+    t.string "field1", array: true
+    t.string "field2", array: true
+    t.string "field3", array: true
+    t.string "field4", array: true
+    t.string "field5", array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "digit_1", default: 1
-    t.integer "digit_2", default: 1
-    t.integer "digit_3", default: 1
-    t.integer "digit_4", default: 1
-    t.integer "digit_5", default: 1
   end
 
 end

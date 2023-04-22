@@ -1,16 +1,61 @@
+<div class = "container text-center mt-2">
+  <h1>Combinar</h1>
+  <%= form_with model: @counter, method: :patch, class: "form-control" do |form| %>
+    <%= form.label :field1, "Grupo 1:", class: "form-label" %>
+    <%= form.text_field :field1, value: "", placeholder: "digite um item", class: "form-control"  %>
+    <%= form.label :field2, "Grupo 2:", class: "form-label" %>
+    <%= form.text_field :field2, value: "", placeholder: "digite um item", class: "form-control" %>
+    <%= form.label :field3, "Grupo 3:", class: "form-label" %>
+    <%= form.text_field :field3, value: "", placeholder: "digite um item", class: "form-control" %>
+    <%= form.label :field4, "Grupo 4:", class: "form-label" %>
+    <%= form.text_field :field4, value: "", placeholder: "digite um item", class: "form-control" %>
+    <%= form.label :field5, "Grupo 5:", class: "form-label" %>
+    <%= form.text_field :field5, value: "", placeholder: "digite um item", class: "form-control mb-3" %>
+    <%= form.submit "Adicionar", class:"btn btn-warning"   %>
+  <% end %>
 
+  <h4 class="mt-3">Grupos</h4>
+  <div class="container text-center border-1 rounded mt-3">
+    <div class="row row-cols-5 border-1 rounded">
+      <div class="col border">
+        <p class="border mt-3">G2</p>
+        <% @counter.field1.each do |d| %><p><%= d %></p><% end %>
+      </div>
+      <div class="col border">
+        <p class="border mt-3">G2</p>
+        <% @counter.field2.each do |d| %><p><%= d %></p><% end %>
+      </div>
+      <div class="col border">
+        <p class="border mt-3">G3</p>
+        <% @counter.field3.each do |d| %><p><%= d %></p><% end %>
+      </div>
+      <div class="col border">
+        <p class="border mt-3">G4</p>
+        <% @counter.field4.each do |d| %><p><%= d %></p><% end %>
+      </div>
+      <div class="col border">
+        <p class="border mt-3">G5</p>
+        <% @counter.field5.each do |d| %><p><%= d %></p><% end %>
+      </div>
 
-
-<div class="container text-center">
-  <h1>Contador</h1>
-
-  <div class="btn-group mb-3">
-    <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_1 %></button>
-    <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_2 %></button>
-    <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_3 %></button>
-    <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_4 %></button>
-    <button type="button" class="btn btn-outline-secondary"><%= @counter.digit_5 %></button>
+    </div>
   </div>
-  <%= button_to 'Incrementar', increment_counter_path(@counter), class:"btn btn-danger mb-3"  %>
-  <%= button_to 'Reiniciar contador', reset_counter_path(@counter), class:"btn btn-danger"  %>
+
+  <div class = "d-flex justify-content-center">
+    <%= button_to 'Reset', reset_counter_path(@counter), class:"btn btn-danger m-3"  %>
+  </div>
+
+  <h5>Combinações Possíveis</h5>
+  <div class="container text-center border rounded mb-5">
+    <% if @check.any? { |c| c.size < 2 } %>
+      <p>Inclua um mínimo de 2 itens em cada grupo</p>
+    <% elsif @check.any? { |c| c.size > 25 } %>
+      <p>Inclua um máximo de 25 itens em cada grupo</p>
+    <% else %>
+      <% @comb.each do |c| %>
+        <p><%= c.join(" ") %></p>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
